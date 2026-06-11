@@ -17,6 +17,13 @@ namespace ProgramacionV_2026.Controllers
         [HttpPost]
         public IActionResult Index(UsuarioViewModel model)
         {
+
+            if (string.IsNullOrWhiteSpace(model.Username) || string.IsNullOrWhiteSpace(model.Password))
+            {
+                ViewBag.Error = "Debe ingresar usuario y contraseña.";
+                return View(model);
+            }
+
             string connectionString = _configuration.GetConnectionString("DefaultConnection");
 
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
