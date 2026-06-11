@@ -1,0 +1,126 @@
+﻿@model ProgramacionV_2026.Models.ActividadViewModel
+
+@{
+    ViewData["Title"] = "Editar Taller";
+}
+
+<div class="card shadow p-4 rounded-4">
+
+    <div class="mb-4">
+        <h2 class="fw-bold text-warning mb-1">
+            <i class="fa-solid fa-pen-to-square me-2"></i>
+            Editar Taller
+        </h2>
+
+        <p class="text-muted mb-0">
+            Modificá los datos de la actividad.
+        </p>
+    </div>
+
+    <form asp-controller="Actividad" asp-action="Edit" method="post">
+
+        <input asp-for="IdActividad" type="hidden" />
+
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Título</label>
+            <input asp-for="Titulo"
+                   class="form-control"
+                   placeholder="Ejemplo: Taller de emociones" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Descripción</label>
+            <textarea asp-for="Descripcion"
+                      class="form-control"
+                      rows="4"
+                      placeholder="Descripción del taller"></textarea>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Fecha</label>
+                <input asp-for="Fecha"
+                       type="date"
+                       class="form-control" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Hora</label>
+                <input asp-for="Hora"
+                       type="time"
+                       class="form-control" />
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Lugar</label>
+            <input asp-for="Lugar"
+                   class="form-control"
+                   placeholder="Ejemplo: Salón principal" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Responsable</label>
+            <input asp-for="Responsable"
+                   class="form-control"
+                   placeholder="Ejemplo: Paula" />
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6 mb-4">
+                <label class="form-label fw-semibold">Estado</label>
+
+                <select asp-for="Estado" class="form-select">
+
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Confirmada">Confirmada</option>
+                    <option value="Finalizada">Finalizada</option>
+                    <option value="Cancelada">Cancelada</option>
+
+                </select>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <label class="form-label fw-semibold">
+                    Tipo de actividad
+                </label>
+
+                <select asp-for="IdTipoActividad"
+                        class="form-select">
+
+                    <option value="1">Taller</option>
+                    <option value="2">Charla</option>
+                    <option value="3">Reunión</option>
+                    <option value="4">Evento</option>
+                    <option value="5">Capacitación</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="d-flex justify-content-end gap-2">
+
+            <a asp-controller="Actividad"
+               asp-action="Index"
+               class="btn btn-outline-secondary px-4">
+                Cancelar
+            </a>
+
+            <button type="submit"
+                    class="btn btn-warning px-4">
+
+                <i class="fa-solid fa-floppy-disk me-2"></i>
+                Guardar Cambios
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>

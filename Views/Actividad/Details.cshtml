@@ -1,0 +1,57 @@
+﻿@model ProgramacionV_2026.Models.ActividadViewModel
+
+@{
+    ViewData["Title"] = "Detalle del Taller";
+}
+
+<div class="card shadow p-4 rounded-4">
+
+    <h2 class="text-primary mb-4">
+        <i class="fa-solid fa-eye me-2"></i>
+        Detalle del Taller
+    </h2>
+
+    <table class="table">
+
+        <tr>
+            <th>Título</th>
+            <td>@Model.Titulo</td>
+        </tr>
+
+        <tr>
+            <th>Descripción</th>
+            <td>@Model.Descripcion</td>
+        </tr>
+
+        <tr>
+            <th>Fecha</th>
+            <td>@Model.Fecha.ToString("dd/MM/yyyy")</td>
+        </tr>
+
+        <tr>
+            <th>Lugar</th>
+            <td>@Model.Lugar</td>
+        </tr>
+
+        <tr>
+            <th>Responsable</th>
+            <td>@Model.Responsable</td>
+        </tr>
+
+        <tr>
+            <th>Estado</th>
+            <td>@Model.Estado</td>
+        </tr>
+
+        <tr>
+            <th>Tipo</th>
+            <td>@Model.TipoActividad</td>
+        </tr>
+
+    </table>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Volver
+    </a>
+
+</div>

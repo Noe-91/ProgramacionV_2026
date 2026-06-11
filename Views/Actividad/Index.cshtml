@@ -1,0 +1,89 @@
+﻿@model List<ProgramacionV_2026.Models.ActividadViewModel>
+
+@{
+    ViewData["Title"] = "Talleres";
+}
+
+<div class="card shadow p-4 rounded-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold text-primary mb-1">
+                <i class="fa-solid fa-calendar-days me-2"></i>
+                Talleres
+            </h2>
+            <p class="text-muted mb-0">
+                Listado de actividades y talleres registrados
+            </p>
+        </div>
+
+        <a asp-controller="Actividad" asp-action="Create" class="btn btn-primary">
+            <i class="fa-solid fa-plus me-2"></i>
+            Nuevo Taller
+        </a>
+    </div>
+
+    @if (TempData["Mensaje"] != null)
+    {
+        <div class="alert alert-success">
+            <i class="fa-solid fa-circle-check me-2"></i>
+            @TempData["Mensaje"]
+        </div>
+    }
+
+    <table class="table table-hover align-middle">
+        <thead class="table-primary">
+            <tr>
+                <th>Título</th>
+                <th>Tipo</th>
+                <th>Fecha</th>
+                <th>Lugar</th>
+                <th>Responsable</th>
+                <th>Estado</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var actividad in Model)
+            {
+                <tr>
+                    <td>@actividad.Titulo</td>
+                    <td>@actividad.TipoActividad</td>
+                    <td>@actividad.Fecha.ToString("dd/MM/yyyy")</td>
+                    <td>@actividad.Lugar</td>
+                    <td>@actividad.Responsable</td>
+                    <td>
+                        <span class="badge bg-info text-dark">
+                            @actividad.Estado
+                        </span>
+                    </td>
+                    <td class="text-center">
+                        <a asp-controller="Actividad"
+                           asp-action="Details"
+                           asp-route-id="@actividad.IdActividad"
+                           class="btn btn-sm btn-outline-primary">
+                            Ver
+                        </a>
+
+                        <a asp-controller="Actividad"
+                           asp-action="Edit"
+                           asp-route-id="@actividad.IdActividad"
+                           class="btn btn-sm btn-outline-warning">
+                            Editar
+                        </a>
+
+                        <a asp-controller="Actividad"
+                           asp-action="Delete"
+                           asp-route-id="@actividad.IdActividad"
+                           class="btn btn-sm btn-outline-danger"
+                           onclick="return confirm('¿Seguro que querés eliminar este taller?');">
+                            Borrar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

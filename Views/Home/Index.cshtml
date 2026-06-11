@@ -1,8 +1,116 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    .home-card {
+        max-width: 850px;
+        margin: auto;
+        background: rgba(255,255,255,0.95);
+        border-radius: 24px;
+        padding: 45px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+        text-align: center;
+    }
+
+    .home-title {
+        color: #1e3c72;
+        font-weight: 700;
+    }
+
+    .home-subtitle {
+        color: #666;
+        margin-bottom: 35px;
+    }
+
+    .option-card {
+        border-radius: 18px;
+        padding: 30px;
+        background: #f8f9fa;
+        border: 1px solid #ddd;
+        transition: 0.3s;
+        height: 100%;
+    }
+
+        .option-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+
+    .option-icon {
+        font-size: 42px;
+        color: #1e3c72;
+        margin-bottom: 15px;
+    }
+
+    .btn-home {
+        background: #1e3c72;
+        color: white;
+        border-radius: 12px;
+        padding: 10px 25px;
+        font-weight: 600;
+    }
+
+        .btn-home:hover {
+            background: #2a5298;
+            color: white;
+        }
+</style>
+
+<div class="home-card">
+
+    <h1 class="home-title">Bienvenida al sistema</h1>
+
+    <p class="home-subtitle">
+        Seleccioná una opción para comenzar a trabajar.
+    </p>
+
+    <div class="row g-4">
+
+        <div class="col-md-6">
+            <div class="option-card">
+
+                <div class="option-icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+
+                <h4>Alta de Usuario</h4>
+
+                <p>
+                    Registrar nuevos usuarios dentro del sistema.
+                </p>
+
+                <a asp-controller="Usuario"
+                   asp-action="Create"
+                   class="btn btn-home">
+                    Ingresar
+                </a>
+
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="option-card">
+
+                <div class="option-icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+
+                <h4>Talleres</h4>
+
+                <p>
+                    Gestionar actividades, talleres y encuentros.
+                </p>
+
+                <a asp-controller="Actividad"
+                   asp-action="Index"
+                   class="btn btn-home">
+                    Ver talleres
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
 </div>

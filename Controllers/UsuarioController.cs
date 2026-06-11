@@ -40,7 +40,7 @@ namespace ProgramacionV_2026.Controllers
                         {
                             // Usuario autenticado correctamente
                             HttpContext.Session.SetString("UsuarioLogueado", model.Username);
-                            return RedirectToAction("Create");
+                            return RedirectToAction("Index","Home");
                         }
                         //else
                         //{
